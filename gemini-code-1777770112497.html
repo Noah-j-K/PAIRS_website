@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAIRS | Parkinson's and Intergenerational Relationship Support</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1F3044', // Deep Navy
+                        secondary: '#2C3E50', // Slate Blue
+                        accent: '#1ABC9C', // Teal
+                        warm: '#E67E22', // Orange
+                        soft: '#F8FAFC',
+                    },
+                    fontFamily: {
+                        display: ['Outfit', 'sans-serif'],
+                        body: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out forwards',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    },
+                    backdropBlur: {
+                        xs: '2px',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #F8FAFC;
+            color: #1F3044;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #1F3044 0%, #1ABC9C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bento-item {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .bento-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #1ABC9C;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="fixed top-0 w-full z-50 glass-card border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center text-white font-bold text-xl">P</div>
+                <span class="font-display font-bold text-xl tracking-tight text-primary">PAIRS</span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-secondary">
+                <button onclick="showPage('home')" class="nav-link hover:text-accent">Home</button>
+                <button onclick="showPage('services')" class="nav-link hover:text-accent">Services</button>
+                <button onclick="showPage('volunteers')" class="nav-link hover:text-accent">Volunteers</button>
+                <button onclick="showPage('about')" class="nav-link hover:text-accent">About Us</button>
+            </div>
+
+            <div class="md:hidden">
+                <button class="text-primary" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-20">
+        
+        <section id="home-page" class="page-section">
+            <div class="relative overflow-hidden bg-soft pt-16 pb-32">
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-20">
+                    <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[60%] bg-accent rounded-full blur-[120px] animate-float"></div>
+                    <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[60%] bg-warm rounded-full blur-[120px]"></div>
+                </div>
+                
+                <div class="max-w-7xl mx-auto px-6 relative z-10">
+                    <div class="max-w-3xl animate-slide-up">
+                        <span class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-accent uppercase bg-accent/10 rounded-full">Connecting Generations</span>
+                        <h1 class="font-display text-5xl md:text-7xl font-bold leading-[1.1] mb-8 text-primary">
+                            Welcome to <span class="gradient-text">PAIRS</span>
+                        </h1>
+                        <p class="text-xl md:text-2xl text-secondary/80 leading-relaxed mb-10">
+                            The Parkinson's and Intergenerational Relationship Support program acts as a bridge between generations, connecting individuals with Parkinson's and student volunteers for mutual support, health, and lifelong wisdom.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <button onclick="showPage('services')" class="px-8 py-4 bg-primary text-white font-bold rounded-2xl hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/20">Our Services</button>
+                            <button onclick="showPage('volunteers')" class="px-8 py-4 bg-white border border-gray-200 text-primary font-bold rounded-2xl hover:bg-gray-50 transition-all">Volunteer with Us</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white py-24">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="font-display text-3xl md:text-4xl font-bold text-primary mb-4">Our Foundation</h2>
+                        <div class="w-20 h-1.5 bg-accent mx-auto rounded-full"></div>
+                    </div>
+
+                    <div class="grid grid-cols-12 gap-6">
+                        <div class="col-span-12 lg:col-span-8 glass-card p-10 rounded-[2.5rem] border-l-8 border-accent bento-item">
+                            <h3 class="text-sm font-bold uppercase tracking-widest text-accent mb-4">The Mission</h3>
+                            <p class="text-2xl md:text-3xl font-medium text-primary leading-snug">
+                                "To cultivate a vibrant, supportive community where individuals with Parkinson's Disease and student volunteers build meaningful relationships that reduce social isolation, improve health outcomes, and empower every member through shared wisdom and purpose."
+                            </p>
+                        </div>
+                        
+                        <div class="col-span-12 lg:col-span-4 bg-primary p-10 rounded-[2.5rem] text-white flex flex-col justify-center shadow-xl bento-item relative overflow-hidden">
+                            <div class="absolute top-0 right-0 p-8 opacity-10">
+                                <svg width="120" height="120" viewBox="0 0 24 24" fill="currentColor"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
+                            </div>
+                            <h3 class="text-4xl font-bold mb-4 font-display text-accent">30+</h3>
+                            <p class="text-white/80">Target participants for our inaugural cohort at Concordia University Irvine.</p>
+                        </div>
+
+                        <div class="col-span-12 md:col-span-6 lg:col-span-3 glass-card p-8 rounded-3xl group hover:bg-primary transition-all duration-500 bento-item">
+                            <div class="w-12 h-12 bg-accent/10 rounded-xl mb-6 flex items-center justify-center text-accent group-hover:bg-white group-hover:text-primary transition-colors">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                            </div>
+                            <h4 class="text-xl font-bold text-primary group-hover:text-white mb-2">Belonging</h4>
+                            <p class="text-secondary/70 group-hover:text-white/80 text-sm">Creating a space where every participant and volunteer feels seen, heard, and valued.</p>
+                        </div>
+
+                        <div class="col-span-12 md:col-span-6 lg:col-span-3 glass-card p-8 rounded-3xl group hover:bg-primary transition-all duration-500 bento-item">
+                            <div class="w-12 h-12 bg-accent/10 rounded-xl mb-6 flex items-center justify-center text-accent group-hover:bg-white group-hover:text-primary transition-colors">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            </div>
+                            <h4 class="text-xl font-bold text-primary group-hover:text-white mb-2">Connection</h4>
+                            <p class="text-secondary/70 group-hover:text-white/80 text-sm">Prioritizing deep, intergenerational relationships as the foundation of health.</p>
+                        </div>
+
+                        <div class="col-span-12 md:col-span-6 lg:col-span-3 glass-card p-8 rounded-3xl group hover:bg-primary transition-all duration-500 bento-item">
+                            <div class="w-12 h-12 bg-accent/10 rounded-xl mb-6 flex items-center justify-center text-accent group-hover:bg-white group-hover:text-primary transition-colors">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04 inter-4.016 11.955 11.955 0 01-8.618 3.04 11.955 11.955 0 01-1.2 5.033c0 5.25 3.125 9.324 10.125 12.26 6.999-2.936 10.125-7.01 10.125-12.26a11.952 11.952 0 01-1.2-5.033z"></path></svg>
+                            </div>
+                            <h4 class="text-xl font-bold text-primary group-hover:text-white mb-2">Empowerment</h4>
+                            <p class="text-secondary/70 group-hover:text-white/80 text-sm">Providing tools and confidence for proactive lifestyle management.</p>
+                        </div>
+
+                        <div class="col-span-12 md:col-span-6 lg:col-span-3 glass-card p-8 rounded-3xl group hover:bg-primary transition-all duration-500 bento-item">
+                            <div class="w-12 h-12 bg-accent/10 rounded-xl mb-6 flex items-center justify-center text-accent group-hover:bg-white group-hover:text-primary transition-colors">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                            </div>
+                            <h4 class="text-xl font-bold text-primary group-hover:text-white mb-2">Reciprocity</h4>
+                            <p class="text-secondary/70 group-hover:text-white/80 text-sm">Creating a mutual exchange—students give support, participants share wisdom.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services-page" class="page-section hidden">
+            <div class="bg-primary text-white py-24 relative overflow-hidden">
+                <div class="absolute top-[-20%] left-[-10%] w-[30%] h-[80%] bg-accent rounded-full blur-[120px] opacity-20"></div>
+                <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">Our Services</h2>
+                    <p class="text-xl text-white/80 max-w-2xl mx-auto">Providing a comprehensive three-pillar approach to supporting individuals with Parkinson's through community, activity, and education.</p>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-6 py-20">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="glass-card rounded-3xl overflow-hidden shadow-xl border-l-4 border-l-warm bento-item flex flex-col">
+                        <div class="p-8 flex-grow">
+                            <div class="w-14 h-14 bg-warm/10 rounded-2xl flex items-center justify-center text-warm mb-6">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                            </div>
+                            <h3 class="font-display text-2xl font-bold text-primary mb-4">One-on-One Lifestyle Support</h3>
+                            <p class="text-secondary/80 mb-6 text-sm">Biweekly sessions for personalized companionship and accountability, conducted via phone, Zoom, or in person.</p>
+                            <ul class="space-y-3">
+                                <li class="flex gap-3 text-secondary text-sm font-medium">
+                                    <span class="text-warm">★</span>
+                                    <span>Lifestyle Coaching & Milestones</span>
+                                </li>
+                                <li class="flex gap-3 text-secondary text-sm font-medium">
+                                    <span class="text-warm">★</span>
+                                    <span>Health Report Reviews</span>
+                                </li>
+                                <li class="flex gap-3 text-secondary text-sm font-medium">
+                                    <span class="text-warm">★</span>
+                                    <span>Intergenerational Storytelling</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-3xl overflow-hidden shadow-xl border-l-4 border-l-accent bento-item flex flex-col">
+                        <div class="p-8 flex-grow">
+                            <div class="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center text-accent mb-6">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            </div>
+                            <h3 class="font-display text-2xl font-bold text-primary mb-4">Physical Activity Groups</h3>
+                            <p class="text-secondary/80 mb-6 text-sm">Biweekly walking groups in Orange County parks for aerobic fitness and social interaction.</p>
+                            <ul class="space-y-3">
+                                <li class="flex gap-3 text-secondary text-sm font-medium">
+                                    <span class="text-accent">★</span>
+                                    <span>Expertly Guided by Trained Volunteers</span>
+                                </li>
+                                <li class="flex gap-3 text-secondary text-sm font-medium">
+                                    <span class="text-accent">★</span>
+                                    <span>Pre-screened Routes</span>
+                                </li>
+                                <li class="flex gap-3 text-secondary text-sm font-medium">
+                                    <span class="text-accent">★</span>
+                                    <span>Transit Vouchers Available</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-3xl overflow-hidden shadow-xl border-l-4 border-l-primary bento-item flex flex-col">
+                        <div class="p-8 flex-grow">
+                            <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477-4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                            </div>
+                            <h3 class="font-display text-2xl font-bold text-primary mb-4">Wellness Seminars</h3>
+                            <p class="text-secondary/80 mb-6 text-sm">Four annual seminars facilitated by students and healthcare professionals covering lifestyle factors for PD management.</p>
+                            <ul class="space-y-3">
+                                <li class="flex gap-3 text-secondary text-sm font-medium">
+                                    <span class="text-primary">★</span>
+                                    <span>Nutrition & Tech Topics</span>
+                                </li>
+                                <li class="flex gap-3 text-secondary text-sm font-medium">
+                                    <span class="text-primary">★</span>
+                                    <span>Caregiver Support Strategies</span>
+                                </li>
+                                <li class="flex gap-3 text-secondary text-sm font-medium">
+                                    <span class="text-primary">★</span>
+                                    <span>Take-home Resources</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="volunteers-page" class="page-section hidden">
+            <div class="relative py-24 bg-soft overflow-hidden">
+                <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+                    <div class="flex-1">
+                        <h2 class="font-display text-4xl md:text-5xl font-bold text-primary mb-6">For Volunteers</h2>
+                        <h3 class="text-2xl text-accent mb-8 font-medium">Empowering the Next Generation of Healthcare Leaders</h3>
+                        <p class="text-lg text-secondary/80 leading-relaxed">
+                            College students from Concordia University Irvine, UC Irvine, UC San Diego, and local institutions gain hands-on, patient-centered service experience that goes beyond the classroom.
+                        </p>
+                    </div>
+                    <div class="flex-1 grid grid-cols-2 gap-4">
+                        <div class="glass-card p-6 rounded-2xl shadow-md transform rotate-2 bento-item">
+                            <p class="font-bold text-accent text-3xl mb-1">CUI</p>
+                            <p class="text-sm text-secondary/70">Concordia University Irvine</p>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl shadow-md transform -rotate-1 bento-item">
+                            <p class="font-bold text-accent text-3xl mb-1">UCI</p>
+                            <p class="text-sm text-secondary/70">UC Irvine</p>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl shadow-md transform -rotate-3 bento-item">
+                            <p class="font-bold text-accent text-3xl mb-1">UCSD</p>
+                            <p class="text-sm text-secondary/70">UC San Diego</p>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl shadow-md transform rotate-2 bento-item">
+                            <p class="font-bold text-accent text-3xl mb-1">Local</p>
+                            <p class="text-sm text-secondary/70">Regional Institutions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-6 py-20">
+                <h3 class="text-3xl font-display font-bold text-primary mb-12 text-center">Comprehensive Training Modules</h3>
+                <div class="space-y-6">
+                    <div class="glass-card p-6 rounded-[2rem] flex items-start gap-6 hover:shadow-lg transition-shadow border border-gray-100">
+                        <div class="w-12 h-12 bg-accent text-white rounded-2xl flex-shrink-0 flex items-center justify-center font-bold text-lg">01</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-primary mb-2">Clinical Literacy</h4>
+                            <p class="text-secondary/80">Deep overview of Parkinson's Disease (PD) and interpreting LPLS health reports to provide informed support.</p>
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 rounded-[2rem] flex items-start gap-6 hover:shadow-lg transition-shadow border border-gray-100">
+                        <div class="w-12 h-12 bg-warm text-white rounded-2xl flex-shrink-0 flex items-center justify-center font-bold text-lg">02</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-primary mb-2">Leadership & Safety</h4>
+                            <p class="text-secondary/80">Training in leadership for social groups and strict mobility safety protocols for physical activities.</p>
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 rounded-[2rem] flex items-start gap-6 hover:shadow-lg transition-shadow border border-gray-100">
+                        <div class="w-12 h-12 bg-primary text-white rounded-2xl flex-shrink-0 flex items-center justify-center font-bold text-lg">03</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-primary mb-2">Communication & Empathy</h4>
+                            <p class="text-secondary/80">Strategies for mental health awareness and effective, patient-centered communication techniques.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center p-8">
+                        <h4 class="text-xl font-bold text-primary mb-4">Professional Growth</h4>
+                        <p class="text-secondary/70 text-sm">Build leadership and clinical-adjacent skills essential for future healthcare careers.</p>
+                    </div>
+                    <div class="text-center p-8">
+                        <h4 class="text-xl font-bold text-primary mb-4">Perspective</h4>
+                        <p class="text-secondary/70 text-sm">Gain invaluable wisdom and life lessons from older adults through reciprocal relationship building.</p>
+                    </div>
+                    <div class="text-center p-8">
+                        <h4 class="text-xl font-bold text-primary mb-4">Impact</h4>
+                        <p class="text-secondary/70 text-sm">Directly reduce social isolation and improve the quality of life in your local community.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about-page" class="page-section hidden">
+            <div class="max-w-4xl mx-auto px-6 py-24">
+                <div class="text-center mb-16">
+                    <h2 class="font-display text-4xl md:text-5xl font-bold text-primary mb-4">About Us</h2>
+                    <p class="text-xl text-accent font-medium">A Partnership for Community Health</p>
+                </div>
+
+                <div class="prose prose-lg max-w-none text-secondary/80 leading-relaxed space-y-12">
+                    <div class="glass-card p-10 rounded-[2.5rem] shadow-sm border border-gray-100">
+                        <h3 class="font-display text-2xl font-bold text-primary mb-4">Our Partnership</h3>
+                        <p>PAIRS is a collaborative initiative between <span class="font-bold text-primary">Concordia University Irvine (CUI)</span> and the <span class="font-bold text-primary">Lifestyle and Parkinson's Longitudinal Study (LPLS)</span>. While PAIRS is service-oriented rather than research-based, it benefits immensely from the clinical expertise and proven methodology of the LPLS.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="p-8 bg-accent/5 rounded-[2.5rem] border border-accent/10">
+                            <h4 class="font-display text-xl font-bold text-primary mb-3">Location & Host</h4>
+                            <p class="text-sm">Hosted at CUI, the program is supported by <span class="font-bold">Dr. Nathan Meier</span> (LPLS director and CUI professor). We utilize campus facilities for all training, orientation, and seminars.</p>
+                        </div>
+                        <div class="p-8 bg-warm/5 rounded-[2.5rem] border border-warm/10">
+                            <h4 class="font-display text-xl font-bold text-primary mb-3">The Gap We Fill</h4>
+                            <p class="text-sm">We bridge the space between medical appointments and daily life by providing community and accountability for putting health knowledge into daily practice.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="p-10 bg-primary/5 rounded-[2.5rem] border border-primary/10 mt-8">
+                        <h4 class="font-display text-2xl font-bold text-primary mb-3">Supported by the Donald A. Strauss Foundation</h4>
+                        <p>Our pilot programs and community-based interventions are made possible by the generous support of the Donald A. Strauss Foundation scholarship, which has provided crucial funding for the 2026-2027 academic year.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <section class="py-20 bg-primary text-white overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            <h2 class="font-display text-4xl font-bold mb-6">Ready to make a connection?</h2>
+            <p class="text-xl text-white/70 mb-10 max-w-2xl mx-auto">Join the PAIRS community as a participant or volunteer and help us bridge the gap for those living with Parkinson's.</p>
+            <div class="flex flex-col items-center justify-center gap-4">
+                <a href="mailto:pairsoc@gmail.com" class="px-8 py-4 bg-accent hover:bg-accent/90 text-white font-bold rounded-2xl transition-all shadow-lg">Get Involved Today</a>
+                <a href="mailto:pairsoc@gmail.com" class="text-white/80 hover:text-white font-medium transition-colors text-lg">pairsoc@gmail.com</a>
+            </div>
+        </div>
+        <div class="absolute top-0 right-0 w-64 h-64 bg-accent/20 blur-[100px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
+    </section>
+
+    <div class="bg-[#152233] text-white/50 py-12 px-6 text-center text-sm font-medium">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center space-x-2 grayscale opacity-80">
+                <div class="w-6 h-6 bg-white rounded flex items-center justify-center text-primary font-bold text-xs">P</div>
+                <span class="font-display font-bold text-white tracking-tight">PAIRS Program</span>
+            </div>
+            <div class="text-white/40">
+                Partnership: Concordia University Irvine & LPLS
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-section').forEach(page => {
+                page.classList.add('hidden');
+            });
+            // Show selected page
+            document.getElementById(pageId + '-page').classList.remove('hidden');
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMobileMenu() {
+            alert("Mobile Menu: Home, Services, Volunteers, About");
+        }
+        
+        // Initial setup
+        window.onload = () => {
+            showPage('home');
+        };
+    </script>
+</body>
+</html>
